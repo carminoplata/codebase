@@ -1,0 +1,8 @@
+{
+    "cmake.sourceDirectory": "/workspaces/codebase/cpp/v17/sampleapp",
+    "files.associations": {
+        "memory": "cpp",
+        "type_traits": "cpp",
+        "iostream": "cpp"
+    }
+}
