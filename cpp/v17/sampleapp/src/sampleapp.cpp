@@ -9,12 +9,12 @@ SampleApp::SampleApp(const string& text)
 
 SampleApp::SampleApp(const SampleApp&& other)
 {
-    this->text = std::move(text);
+    this->text = std::move(other.text);
 }
     
 SampleApp& SampleApp::operator=(const SampleApp&& other)
 {
-    this->text = std::move(text);
+    this->text = std::move(other.text);
     return *this;
 }
 
@@ -23,7 +23,7 @@ string SampleApp::getText() const
     return text;
 }
 
-void SampleApp::print()
+void SampleApp::print(ostream& os)
 {
-    cout << text << endl;
+    os << text << endl;
 }

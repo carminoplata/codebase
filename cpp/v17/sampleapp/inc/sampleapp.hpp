@@ -13,7 +13,7 @@ public:
     SampleApp& operator=(const SampleApp& other) = delete;
     
     string getText() const;
-    void print();
+    void print(ostream& os);
 
 protected:
     

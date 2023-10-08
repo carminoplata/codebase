@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "sampleapp.h"
 
+#include <string>
 
 class SampleAppFixture : public testing::Test
 {
@@ -8,5 +8,5 @@ public:
     SampleAppFixture();
 
 protected:
-    string expectedText;
+    std::string expectedText;
 };
