@@ -16,6 +16,8 @@ source_group("Source Files" FILES ${SOURCE_FILES})
 include_directories(inc)
 
 add_library(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
+target_include_directories(${PROJECT_NAME} PUBLIC
+                           "${PROJECT_BINARY_DIR}")
 
 #tell to the compiler to use CXX for linking the library
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX) 
