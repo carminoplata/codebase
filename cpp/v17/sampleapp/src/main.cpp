@@ -1,5 +1,6 @@
-#include "sampleapp.hpp"
 #include "config.h"
+#include "sampleapp.hpp"
+
 #include <iostream>
 #include <sstream>
 #include <string>

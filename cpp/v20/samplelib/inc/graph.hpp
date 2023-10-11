@@ -1,6 +1,8 @@
-#include "node.hpp"
 #ifndef GRAPH_H
 #define GRAPH_H
+
+#include "config.h"
+#include "node.hpp"
 
 template<class T>
 class Graph
@@ -8,14 +10,14 @@ class Graph
 
 public:
     Graph()
-        : size{0}
-        , initNode{nullptr}
+        : initNode{nullptr}
+        , num_nodes{0}
     {    
     };
 
     Graph(const T& data)
-        : size{1}
-        , initNode{new Node<T>(data)}
+        : initNode{new Node<T>(data)}
+        , num_nodes{1}
     {
 
     }
@@ -26,11 +28,11 @@ public:
     Graph<T>& operator=(const Graph<T>&& other);
 
     Graph(const Graph& other) = delete;
-    Graph& operator=(const Graph& other) = delete
+    Graph& operator=(const Graph& other) = delete;
 
-    int getNumNodes()
+    int getNumNodes() const
     {
-        return size;
+        return num_nodes;
     }
 
     std::string getVersion()
@@ -51,9 +53,8 @@ public:
 
 private:
     /* data */
-    int size;
     std::unique_ptr<T> initNode;
-
+    int num_nodes;
 };
 
 

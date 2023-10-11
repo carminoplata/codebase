@@ -114,7 +114,7 @@ private:
 
 bool isThereIntersection(const std::vector<bool>& visitedA, 
                          const std::vector<bool>& visitedB,
-                         int& middeNodeIndex)
+                         size_t& middeNodeIndex)
 {
     bool isIntersected = false;
     bool isFinished = false;
@@ -194,7 +194,7 @@ bool isTherePathBetweenTwoNodes(const int indexA, const int indexB,
     std::vector<bool> visitedA(graph.size(), false);
     std::vector<bool> visitedB(graph.size(), false);
     bool isPathFound = false;
-    int indexMiddleNode = -1;
+    size_t indexMiddleNode = -1;
     if(indexA < 0 || static_cast<size_t>(indexA) >= graph.size() ||
        indexB < 0 || static_cast<size_t>(indexB) >= graph.size())
     {
@@ -255,10 +255,10 @@ void visitAdjacents(int nodeToVisit, std::queue<int>& listToVisit, std::vector<i
                               [nodeToVisit, &listToVisit,
                                &parents, &visited, &graph](auto n){
             auto nit = std::ranges::find(graph, n);
-            int curr_index = nit - graph.begin();
+            auto curr_index = nit - graph.begin();
             if(!visited[curr_index])
             {
-                listToVisit.push(curr_index);
+                listToVisit.push(static_cast<int>(curr_index));
                 parents[curr_index] = nodeToVisit;
                 visited[curr_index] = true;
             }
