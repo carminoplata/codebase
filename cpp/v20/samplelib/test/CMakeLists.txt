@@ -19,7 +19,7 @@ FetchContent_Declare(
 
 file(GLOB_RECURSE PROJ_TO_TEST_H ../inc/*.hpp)
 file(GLOB_RECURSE PROJ_TO_TEST_CPP ../src/*.cpp)
-file(GLOB_RECURSE HEADER_FILES include/*.h)
+file(GLOB_RECURSE HEADER_FILES inc/*.hpp)
 file(GLOB_RECURSE SOURCE_FILES src/*.cpp)
 
 source_group("Headers" FILES ${HEADER_FILES}) 

@@ -1,9 +1,11 @@
+#ifndef GRAPHBUILDER_H
+#define GRAPHBUILDER_H
+
 #include "graph.hpp"
 
 #include <string>
 
-#ifndef GRAPHBUILDER_H
-#define GRAPHBUILDER_H
+
 
 class GraphBuilder{
 public:

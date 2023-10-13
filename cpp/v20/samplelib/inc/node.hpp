@@ -1,3 +1,6 @@
+#ifndef NODE_H
+#define NODE_H
+
 #include <algorithm>
 #include <iostream>
 #include <list>
@@ -5,8 +8,7 @@
 #include <vector>
 
 
-#ifndef NODE_H
-#define NODE_H
+
 
 template<class T>
 class Node

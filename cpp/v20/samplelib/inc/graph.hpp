@@ -1,7 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
-#include "config.h"
 #include "node.hpp"
 
 template<class T>
@@ -33,11 +32,6 @@ public:
     int getNumNodes() const
     {
         return num_nodes;
-    }
-
-    std::string getVersion()
-    {
-        return LIB_VERSION;
     }
 
     void addNode(const T& data)
