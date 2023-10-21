@@ -1,6 +1,5 @@
 #include "nodetests.hpp"
 
-
 #include <string>
 
 NodeFixture::NodeFixture()

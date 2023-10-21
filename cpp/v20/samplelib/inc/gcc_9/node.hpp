@@ -71,7 +71,7 @@ public:
         adjacents.push_back(node);
     }
 
-    Node<T>& emplaceData(T& data){
+    Node<T>& emplaceData(const T& data){
         return adjacents.emplace_back(data);
     }
 

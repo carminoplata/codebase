@@ -3,16 +3,24 @@ project(GraphUnitTests VERSION 1.0.0)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
-message(STATUS "Compiles using GCC ${CMAKE_CXX_COMPILER_VERSION}")
+message(STATUS "Building with ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY bin)
-set(gcc_9 ${PROJECT_SOURCE_DIR}/../inc/gcc_9)
-set(gcc_10 ${PROJECT_SOURCE_DIR}/../inc/gcc_10)
+
+if((CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION LESS "10.0.0") OR 
+   (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" AND CMAKE_CXX_COMPILER_VERSION LESS "14.0.0"))
+  set(gcc ${PROJECT_SOURCE_DIR}/../inc/gcc_9)
+  message(STATUS "Compiler doesn't support c++20 concepts")
+else()
+  message(STATUS "Compiler supports c++20 concepts")
+  set(gcc ${PROJECT_SOURCE_DIR}/../inc/gcc_10)
+endif()
+
 cmake_policy(SET CMP0135 NEW)
 
-include_directories(../inc inc 
-  $<$<VERSION_LESS:$<CXX_COMPILER_VERSION>,10>:${gcc_9}>
-  $<$<VERSION_GREATER_EQUAL:$<CXX_COMPILER_VERSION>,10>:${gcc_10}>)
+include_directories(../inc inc ${gcc})
+  #$<$<VERSION_LESS:$<CXX_COMPILER_VERSION>,10>:${gcc_9}>
+  #$<$<VERSION_GREATER_EQUAL:$<CXX_COMPILER_VERSION>,10>:${gcc_10}>)
 
 # Download GTest and integrate it
 include(FetchContent)

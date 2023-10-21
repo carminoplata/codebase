@@ -8,7 +8,6 @@
 template<class T>
 class Graph
 {
-
 public:
     Graph()
         : initNode{nullptr}
@@ -23,7 +22,9 @@ public:
 
     }
 
-    ~Graph();
+    ~Graph()
+    {
+    }
 
     Graph(const Graph<T>&& other);
     Graph<T>& operator=(const Graph<T>&& other);
@@ -40,16 +41,26 @@ public:
     {
         if(initNode==nullptr)
         {
-            initNode = new Node(data);
+            initNode = std::make_unique<Node<T>>(data);
         }else
         {
             initNode->emplaceData(data);
         }
+        num_nodes++;
+    }
+
+    T& getDataInRoot() const
+    {
+        if(initNode==nullptr)
+        {
+            throw std::runtime_error("Error: GRAPH IS EMPTY!!");
+        }
+        return initNode->getValue();
     }
 
 private:
     /* data */
-    std::unique_ptr<T> initNode;
+    std::unique_ptr<Node<T>> initNode;
     int num_nodes;
 };
 
