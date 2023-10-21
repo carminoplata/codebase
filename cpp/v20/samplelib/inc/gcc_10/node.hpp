@@ -7,9 +7,6 @@
 #include <queue>
 #include <vector>
 
-
-
-
 template<class T>
 class Node
 {
@@ -88,7 +85,7 @@ public:
     }
     bool hasPathTo(auto& data){
         if(data==value){
-            throw std::exception("The target node is the node itself");
+            throw std::logic_error("The target node is the node itself");
         }
         auto isEqual =  [data](const auto& elem){
             return elem.readValue() == data;
@@ -114,7 +111,7 @@ private:
     T value;
 };
 
-bool isThereIntersection(const std::vector<bool>& visitedA, 
+/*bool isThereIntersection(const std::vector<bool>& visitedA, 
                          const std::vector<bool>& visitedB,
                          size_t& middeNodeIndex)
 {
@@ -167,15 +164,6 @@ bool isThereDirectPathFromTo(const Node<T>& src, const Node<T>& dst)
                     nodesToVisitSrc.push(node);
                 });
             }
-            /*if(!fromDst.visited)
-            {
-                fromDst.visited = true;
-                auto adjacents = fromSrc.getAdjacents();
-                std::for_each(adjacents.begin(), adjacents.end(), 
-                              [&nodesToVisitDst](auto node){
-                    nodesToVisitDst.push(node);
-                });
-            }*/
         }
         //nodesToVisitDst.pop();
         nodesToVisitSrc.pop();
@@ -219,25 +207,6 @@ bool isTherePathBetweenTwoNodes(const int indexA, const int indexB,
             isPathFound = true;
         }else
         {
-            
-            /*if(!fromA.visited)
-            {
-                fromA.visited = true;
-                auto adjacents = fromA.getAdjacents();
-                std::for_each(adjacents.begin(), adjacents.end(), 
-                              [&nodesToVisitA](auto node){
-                    nodesToVisitA.push_back(node);
-                });
-            }
-            if(!fromB.visited)
-            {
-                fromB.visited = true;
-                auto adjacents = fromB.getAdjacents();
-                std::for_each(adjacents.begin(), adjacents.end(), 
-                              [&nodesToVisitB](auto node){
-                    nodesToVisitB.push_back(node);
-                });
-            }*/
         }
 
     }
@@ -266,10 +235,6 @@ void visitAdjacents(int nodeToVisit, std::queue<int>& listToVisit, std::vector<i
             }
         });
     }
-    /*std::ranges::for_each(listOfNodesToVisit, 
-                          [&listOfNodesToVisit, &parents, &visited, &graph](auto node){
-            
-    });*/
     visited[nodeToVisit] = true;
-}
+}*/
 #endif

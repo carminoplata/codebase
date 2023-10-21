@@ -16,7 +16,7 @@ GraphFixture::GraphFixture()
 
     for(char c='B'; c<='K'; ++c)
     {
-        nodes.emplace_back(c);
+        nodes.emplace_back(std::string(1, c));
     }
     // A
     nodes[0].addAdjacents(nodes[1]);  // A - B

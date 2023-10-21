@@ -3,6 +3,8 @@
 
 #include "node.hpp"
 
+#include <memory>
+
 template<class T>
 class Graph
 {

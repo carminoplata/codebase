@@ -1,4 +1,8 @@
+#ifndef NODEFIXTURE_H
+#define NODEFIXTURE_H
+
 #include "node.hpp"
+#include "utils.hpp" 
 
 #include <gtest/gtest.h>
 
@@ -31,3 +35,5 @@ public:
 
 protected:
 };
+
+#endif
