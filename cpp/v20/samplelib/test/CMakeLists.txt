@@ -48,10 +48,7 @@ FetchContent_MakeAvailable(googletest)
 # Now simply link against gtest or gtest_main as needed. Eg
 add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES} ${PROJ_TO_TEST_H}
                ${PROJ_TO_TEST_CPP})
-if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 10)
-  message("Enable concepts: List features  ${CMAKE_CXX_COMPILE_FEATURES} ")
-  #target_compile_features(${PROJECT_NAME} PRIVATE concepts)
-endif()
+
 target_link_libraries(${PROJECT_NAME} GTest::gtest_main)
 add_test(NAME runUnitTests COMMAND runTests)
 
